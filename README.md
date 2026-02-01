@@ -1,8 +1,8 @@
-# 🦴 Spine Multiclass Classification – PyTorch
+#  Spine Multiclass Classification – PyTorch
 
 A machine learning project that classifies spinal conditions into **three categories** using biomechanical features and a neural network built with **PyTorch**.
 
-## 🎯 Classes
+## Classes
 
 - **Normal**
 - **Hernia**
@@ -10,35 +10,31 @@ A machine learning project that classifies spinal conditions into **three catego
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
-spine-multiclass-classification/
-├── data/
-│   └── column_3C_weka.xlsx
-│
-├── notebooks/
-│   ├── exploration.ipynb
-│   └── test_inference.ipynb
-│
-├── src/
-│   ├── preprocess.py
-│   ├── model.py
-│   ├── train.py
-│   ├── evaluate.py
-│   └── predict.py
-│
+```
+binary-classification/
 ├── artifacts/
-│   ├── model.pth
-│   └── scaler.pkl
-│
-├── .gitignore
-├── README.md
-└── requirements.txt
+│   └── model.pth                 # Saved trained PyTorch model state dictionary
+├── data/
+│   └── column_2C_weka.csv        # Dataset for classification
+├── notbooks/
+│   ├── a.ipynb                   # Primary notebook for full pipeline execution and exploration
+│   ├── exploration.ipynb         # Notebook for initial data exploration
+│   └── test_inference.ipynb      # Notebook for testing model inference
+├── src/
+│   ├── __init__.py               # Makes 'src' a Python package
+│   ├── evaluate.py               # Script for model evaluation
+│   ├── helper.py                 # Utility functions (e.g., plot_decision_boundary)
+│   ├── model.py                  # Neural network architecture definition
+│   ├── predict.py                # Script for making predictions
+│   ├── preprocess.py             # Script for data loading and preprocessing
+│   └── train.py                  # Script for model training
+├── .gitignore                    # Git ignore file
+└── requirements.txt              # Python dependencies
+```
 
-
----
-
-## 📊 Dataset
+##  Dataset
 
 - 6 numerical biomechanical features  
 - Target: 3 classes  
@@ -54,7 +50,7 @@ spine-multiclass-classification/
 
 ---
 
-## ⚙️ Preprocessing
+##  Preprocessing
 
 - Label encoding  
 - Feature scaling with **StandardScaler**  
@@ -64,7 +60,7 @@ spine-multiclass-classification/
 
 ---
 
-## 🧠 Model Architecture
+##  Model Architecture
 
 - Fully Connected Neural Network  
 - Input: 6 features  
@@ -74,18 +70,15 @@ spine-multiclass-classification/
 
 ---
 
-## 🚀 Training
+##  Training
 
-```bash
-python src/train.py
-Trains for 2000 epochs
+   ```bash
+    python src/train.py
+    ```
+    This will train the neural network and save the trained model's `state_dict` to `artifacts/model.pth`.
 
-Saves model to:
 
-artifacts/model.pth
-```
-
-📈 Evaluation
+ Evaluation
 ```bash
 python src/evaluate.py
 ```
@@ -112,9 +105,9 @@ Class Performance
 | Hernia            | 0.64      | 0.58   | 0.61 |
 | Spondylolisthesis | 0.93      | 0.87   | 0.90 |
 
-🔎 The model performs best on Spondylolisthesis, while most confusion occurs between Hernia and Normal.
+ The model performs best on Spondylolisthesis, while most confusion occurs between Hernia and Normal.
 
-🔮 Inference
+ Inference
 ```bash
 python src/predict.py
 ```
@@ -128,7 +121,7 @@ Prediction : Spondylolisthesis
 Probabilities: [[0.05, 0.12, 0.83]]
 ```
 
-🧪 Exploratory Analysis
+ Exploratory Analysis
 Performed in notebooks:
 
 - Feature distributions
@@ -136,7 +129,7 @@ Performed in notebooks:
 - PCA visualization
 - Class imbalance analysis
 
-🛠 Requirements
+ Requirements
 Install dependencies:
 
 ```bash
